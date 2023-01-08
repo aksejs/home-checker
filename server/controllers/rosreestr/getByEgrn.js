@@ -2,19 +2,15 @@ const axios = require('axios')
 
 const getByEgrn = (req, res, API_KEY) => {
   axios
-    .get('https://rosreestr.net/api/method/database.get', {
+    .get('https://rosreestr.net/api/method/service.getByEgrn', {
       params: {
         egrn: req.body.query,
         access_token: API_KEY,
         v: '1.0'
       }
     })
-    .then(({ data }) => {
-      const { response } = data
-      if (!response) {
-        res.send({})
-      }
-      return res.send(response.data)
+    .then((res) => {
+      return '202'
     })
     .catch((err) => console.error('GET_ERROR --> ', err))
 }

@@ -8,12 +8,45 @@
   </div>
 </template>
 
-<style lang="sass">
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=cyrillic')
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=cyrillic');
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  outline: none;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
 </style>
 <style>
 html {
   font-family: 'Montserrat', sans-serif;
+  color: #333;
   font-size: 15px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -43,15 +76,17 @@ button {
   display: inline-block;
   color: #fff;
   border-radius: 4px;
-  border: 5px solid #F85B29;
   text-decoration: none;
   padding: 10px 30px;
   background-color: #F85B29;
 }
 
 .button--green:hover {
-  color: #F85B29;
-  background-color: inherit;
+  background: linear-gradient(106.7deg, rgba(248, 91, 41, 0.5) 0%, rgba(169, 25, 25, 0.5) 100%), #F85B29;
+}
+
+.button--green:disabled {
+  cursor: not-allowed!important;
 }
 
 .button--grey {
@@ -70,12 +105,15 @@ button {
 }
 .button--inverse {
   display: inline-block;
-  color: #fff;
   border-radius: 4px;
   border: 5px solid #014EA6;
   text-decoration: none;
   background: inherit;
   color: #014EA6;
+}
+.button--inverse:hover {
+  background: #014EA6;
+  color: #fff;
 }
 .main-wrapper {
   background-color: #f7f8f8;

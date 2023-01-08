@@ -1,0 +1,248 @@
+.aq {
+  $root: &;
+  position: relative;
+
+  &__container {
+    height: 80px;
+    padding: 10px 10px 10px 44px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 40px;
+
+    background: #FFFFFF;
+    border: 1px solid #FAFAFA;
+    border-bottom: none;
+  }
+
+  &__icon {
+    height: 30px;
+    width: 30px;
+    background: url(assets/map.svg);
+    flex-shrink: 0;
+  }
+
+  &__field {
+    position: relative;
+    margin-left: 20px;
+    flex-grow: 1;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    cursor: text;
+  }
+
+  &__placeholder {
+    color: #646464;
+    font-size: 20px;
+    line-height: 1;
+    display: block;
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: all .15s ease;
+
+    &--focused {
+      top: 0;
+      transform: none;
+      font-size: 12px;
+    }
+  }
+
+  &__input {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+
+    font-size: 20px;
+    line-height: 30px;
+    color: #333;
+
+    width: 100%;
+  }
+
+  &__button {
+    background: #F85B29;
+    border-radius: 35px;
+    padding: 0 30px 0 50px;
+
+    display: flex;
+    align-items: center;
+
+    &-label {
+      font-size: 20px;
+      line-height: 30px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    &-icon {
+      height: 43px;
+      width: 43px;
+      background: url(./assets/angleRight.svg);
+      display: block;
+    }
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        background: linear-gradient(106.7deg, rgba(248, 91, 41, .5), rgba(169, 25, 25, .5)), #f85b29;
+      }
+    }
+
+    &--inline {
+      margin-left: 20px;
+      height: 100%;
+    }
+
+    &--block {
+      height: 62px;
+      width: 100%;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__hint {
+    margin-top: 10px;
+    padding: 0 44px;
+
+    font-size: 20px;
+    line-height: 150%;
+    color: #646464;
+  }
+
+  &__options {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+    border: 1px solid #FAFAFA;
+    border-top: none;
+    box-shadow: 0 20px 20px rgba(1, 78, 166, 0.2);
+    border-radius: 0 0 40px 40px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    padding-top: 10px;
+
+    &-label {
+      font-size: 20px;
+      line-height: 150%;
+      color: #646464;
+      padding: 0 40px;
+    }
+
+    &-list {
+      display: grid;
+      margin-top: 10px;
+
+      max-height: 180px;
+      overflow-y: auto;
+    }
+  }
+
+  &__option {
+    height: 50px;
+    padding: 0 40px;
+    border: 1px solid #FAFAFA;
+    display: flex;
+    align-items: center;
+
+    &-label {
+      font-weight: 500;
+      font-size: 20px;
+      color: #333333;
+      flex-grow: 1;
+      text-align: left;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 0;
+      white-space: nowrap;
+    }
+
+    &-icon {
+      height: 43px;
+      width: 43px;
+      background: url(./assets/angleRightBlue.svg);
+    }
+
+    &:nth-child(odd) {
+      background: #FAFAFA;
+    }
+
+    &:hover,
+    &:focus {
+      background: #F2F6FB !important;
+    }
+  }
+
+  &--mobile {
+    #{$root} {
+      &__container {
+        border-radius: 31px;
+        height: 62px;
+      }
+
+      &__options {
+        top: 62px;
+      }
+
+      &__input {
+        transform: translateY(6px);
+      }
+    }
+  }
+
+  &--highlighted {
+    #{$root} {
+      &__container {
+        box-shadow: 0 0 0 3px red !important;
+      }
+    }
+  }
+
+  &--focused {
+    #{$root} {
+      &__container {
+        box-shadow: 0 0 20px rgba(1, 78, 166, 0.2);
+      }
+
+      &__options {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &--with-options {
+    #{$root} {
+      &__container {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}
