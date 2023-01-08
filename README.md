@@ -17,7 +17,7 @@ touch .env
 ```
 
 ### Миграции sqlite
-Пока вот так уебищно, потом перенесу в cli
+Пока вот так убого, потом перенесу в cli
 ```bash
 ./node_modules/.bin/sequelize db:migrate
 ./node_modules/.bin/sequelize db:seed:all
