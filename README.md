@@ -1,22 +1,42 @@
-# home-checker
+# Сервис Homechecker
 
-> Homechecker main project
+### Технологии
 
-## Build Setup
+- Nuxt
+- Vue
+- Vuex
+- Express
 
-``` bash
-# install dependencies
-$ yarn install
+### Как развернуть проект
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+```bash
+git clone git@gitlab.com:the72nd/homechecker.git
+cd ./homechecker
+yarn
+touch .env
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+### Миграции sqlite
+Пока вот так уебищно, потом перенесу в cli
+```bash
+./node_modules/.bin/sequelize db:migrate
+./node_modules/.bin/sequelize db:seed:all
+```
+
+```dotenv
+# .env
+
+#NUXT
+NUXT_HOST=
+NUXT_PORT=
+
+# dadata
+DADATA_API_KEY=
+DADATA_SECRET_KEY=
+
+# rosreestr.net
+ROSREEST_NET_API_KEY=
+
+# CloudPayments
+CLOUD_PAYMENTS_PK=
+```

@@ -3,7 +3,6 @@ const { MACRO_REGIONS } = require('../../constants')
 
 const search = (req, res) => {
   const { region, city, street, house = '', flat = '' } = req.body.data
-  console.log(MACRO_REGIONS)
   const findMacroRegion = (dadataRegion) => {
     const filtered = MACRO_REGIONS.filter(({ name }) => name.includes(dadataRegion))
     if (filtered.length) {

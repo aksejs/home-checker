@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const MACRO_REGIONS = [
   {
     id: 102000000000,
@@ -341,6 +343,6 @@ const MACRO_REGIONS = [
   }
 ]
 
-const DADATA_API_KEY = '3d5ad0ad1c2071c0873926dc5d6535d26fb759ad'
+const { DADATA_API_KEY, ROSREEST_NET_API_KEY } = process.env
 
-module.exports = { MACRO_REGIONS, DADATA_API_KEY }
+module.exports = { MACRO_REGIONS, DADATA_API_KEY, ROSREEST_NET_API_KEY }
